@@ -1,0 +1,52 @@
+<html>
+<head>
+<link rel="stylesheet" href="static/styles.css">
+<title>Survey Form</title>
+<!-- CSS only -->
+</head>
+<body>
+<div id='root'>
+<h1 id="title">Devices Survey</h1>
+<p id="description">The purpose of this survey is to count
+    the number of the most preferred mobile device and the reasons for
+    it.
+</p>
+<form id="survey-form">
+            <label id="name-label">Name</label>
+            <input id="name" class="input-box" placeholder="Ntokozo Ndlovu" required>
+            <label id="number-label">Number</label>      
+            <input id="number" class="input-box" pattern="[0-9]" min="10" max="100" placeholder="073 234 234" type="number">
+            <label id="email-label" >Email</label>
+            <input id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="input-box" placeholder="ntokozometo@gmail.com" type="email" required>
+<!--drop down list with id="dropdown"-->
+<div class="devices-container">
+<label for="iphone"><input type="radio" id="iphone" value="iphone" name="devices">IPhone</label>
+<label for="samsung"><input type="radio" id="samsung" value="samsung" name="devices">Samsung</label>
+<label for="huawei"><input type="radio" id="huawei" value="huawei" name="devices">Huawei</label>
+<label for="sony"><input type="radio" id="sony" value="sony" name="devices">Sony</label>    
+</div>
+<!--list of radio buttons grouped by name -->
+<label for="expensive-list">Which is more expensive?</label>
+<select id="dropdown" class="input-box" name="expensive-list">
+    <option value="iphone">IPhone</option>
+    <option value="huawei">Huawei</option>
+    <option value="samsung">Samsung</option>
+    <option value="sony">Sony</option>
+</select>
+<label for="completed"><input type="checkbox" id="completed" value="completed" name="checks">Did you complete the survey?</label>   
+<label for="hard"><input type="checkbox" id="hard" value="yes" name="checks">Was it hard?</label>
+<!--each must have a value attribute-->
+    
+<label id="comment-label">Comments on reason you chose the particular device</label>
+<textarea type="text" id="comment" class="input-box"></textarea>
+
+
+<input type="submit" id="submit" class="submit-button">
+
+<!--additionally for comments-->
+</form>
+</div>
+</body>
+
+
+</html>
