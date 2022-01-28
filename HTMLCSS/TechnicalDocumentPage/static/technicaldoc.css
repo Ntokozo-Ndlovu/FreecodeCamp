@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 body{
     padding: 0;
     margin: 0;
@@ -26,7 +29,7 @@ nav header {
     background: gray;
     height: 10%;
     text-decoration: none;
-    font-size: large;
+    font-size: larger;
 }
 main{
     margin-left: 20vw;

@@ -73,10 +73,11 @@
                         <header><h2>The Tenets of Functional Programming</h2></header>
             <p>     
             So far, we have learned that functional programming is dependent on a few rules. They are as follows.
-
-            Don’t mutate data
-            Use pure functions: fixed output for fixed inputs, and no side effects
-            Use expressions and declarations
+            <ul>
+            <li>Don’t mutate data</li>
+            <li>Use pure functions: fixed output for fixed inputs, and no side effects</li>
+            <li>Use expressions and declarations</li>
+        </ul>
             When we satisfy these conditions, we can say our code is functional.
             </p>   
             </section>
@@ -84,9 +85,18 @@
                         <header><h2>Functional Programming in JavaScript</h2></header>
             <p>            
             JavaScript already has some functions that enable functional programming.
-            Example: <code>String.prototype.slice, Array.protoype.filter, Array.prototype.join.</code>
+            Example: <code>
+                <ul>
+                <li>String.prototype.slice</li>
+                <li> Array.protoype.filter</li>
+                <li> Array.prototype.join</li>
+            </ul></code>
 
-            On the other hand, <code>Array.prototype.forEach, Array.prototype.push</code> are impure functions.
+            On the other hand, <code>
+                <ul>
+                <li>Array.prototype.forEach</li>
+                <li> Array.prototype.push</li>
+            </ul></code> are impure functions.
             </p>
             <p>
             One can argue that <code>Array.prototype.forEach</code> is not an impure function by design
