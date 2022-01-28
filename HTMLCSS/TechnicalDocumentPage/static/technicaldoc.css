@@ -93,7 +93,13 @@ main{
         height: 8%;
         }
 }
-@media (max-width:1040px){
+@media (max-height:580px) {
+    
+ .nav-link {
+     height:16%;
+ }   
+}
+@media (max-width:1060px){
     main {
         margin: 0;
     }
@@ -101,6 +107,7 @@ main{
         display: none;
     }
 }
+
 @keyframes btn-animation{
     0% {
         width: 20%;
