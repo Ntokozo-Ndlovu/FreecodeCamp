@@ -1,88 +1,117 @@
 <html>
 <head>
-<link rel="stylesheeet" href="static/technicaldoc.css" >
+<link rel="stylesheet" href="static/technicaldoc.css" >
 </head>
 <body>
     <nav id="navbar">
         <header>
             JavaScript Doc
         </header>
-        <a href="#Introduction_To_Functional_Programming"></a>
-        <a href="#Pure_vs_Impure_Functions">Pure vs Impure Functions</a>
-        <a href="#The_Tenets_of_Functional_Programming">The Tenets of Functional Programming</a>
-        <a href="#Functional_Programming_in_JavaScript">Functional Programming in JavaScript</a>
-        <a href="#Conclusion">Conclusion</a>
+        <a class="nav-link" href="#Introduction_To_Functional_Programming">Introduction</a>
+        <a class="nav-link" href="#Pure_vs_Impure_Functions">Pure vs Impure Functions</a>
+        <a class="nav-link" href="#The_Tenets_of_Functional_Programming">The Tenets of Functional Programming</a>
+        <a class="nav-link" href="#Functional_Programming_in_JavaScript">Functional Programming in JavaScript</a>
+        <a class="nav-link" href="#Conclusion">Conclusion</a>
     </nav>
     <main id="main-doc">
         <section id="Introduction_To_Functional_Programming" class="main-section">
-            <header>
-                Introduction To Functional Programming
+            <header >
+               <h2>Introduction To Functional Programming</h2>
             </header>
+            <p>
             Functional programming is a paradigm of building computer programs using expressions and functions without mutating state and data.
 
-By respecting these restrictions, functional programming aims to write code that is clearer to understand and more bug resistant. This is achieved by avoiding using flow-control statements (for, while, break, continue, goto) which make the code harder to follow. Also, functional programming requires us to write pure, deterministic functions which are less likely to be buggy.
+            By respecting these restrictions, functional programming aims to write code that is clearer to understand and more bug resistant.
+            This is achieved by avoiding using flow-control statements (for, while, break, continue, goto) which make the code harder to follow. 
+            Also, functional programming requires us to write pure, deterministic functions which are less likely to be buggy.
+            </p>
+            <p>
+            In this article, we will talk about doing functional programming using JavaScript.
+            We will also explore various JavaScript methods and features that make it possible.
+            In the end, we will explore different concepts associated with functional programming and see why they are so powerful.
+            <br>
+            Before getting into functional programming, though, one needs to understand the difference between pure and impure functions.
+            </p>
+            </section>
+                    <section id="Pure_vs_Impure_Functions" class="main-section">
+                        <header>
+                            <h2>Pure vs Impure Functions</h2>
+                        </header>
+                <p>        
+            Pure functions take some input and give a fixed output. Also, they cause no side effects in the outside world.
+            <code>const add = (a, b) => a + b;</code>
+            Here, add is a pure function. This is because, for a fixed value of a and b, the output will always be the same.
+            <br>
+            <code>
+            const SECRET = 42; <br> 
+            const getId = (a) => SECRET * a;
+            </code>
+            <br>
+            getId is not a pure function.
+            The reason being that it uses the global variable SECRET for computing the output.
+            If SECRET were to change, the getId function will return a different value for the same input.
+            Thus, it is not a pure function.<br>
+            <code>
+            let id_count = 0;<br>
+            const getId = () => ++id_count;
+            </code><br>
+            This is also an impure function, and that too for a couple of reasons—(1) it uses a non-local variable for computing its output,
+            and (2) it creates a side effect in the outside world by modifying a variable in that world.
 
-In this article, we will talk about doing functional programming using JavaScript. We will also explore various JavaScript methods and features that make it possible. In the end, we will explore different concepts associated with functional programming and see why they are so powerful.
+            getId is impure illustration
+            This can be troublesome if we had to debug this code.
 
-Before getting into functional programming, though, one needs to understand the difference between pure and impure functions.
-        </section>
-        <section id="Pure_vs_Impure_Functions" class="main-section">
-            <header>
-                Pure vs Impure Functions
-            </header>
-            
-Pure functions take some input and give a fixed output. Also, they cause no side effects in the outside world.
+            What’s the current value of id_count? Which other functions are modifying id_count? Are there other functions relying on id_count?
 
-const add = (a, b) => a + b;
-Here, add is a pure function. This is because, for a fixed value of a and b, the output will always be the same.
+            Because of these reasons, we only use pure functions in functional programming.
 
-const SECRET = 42;  
-const getId = (a) => SECRET * a;
-getId is not a pure function. The reason being that it uses the global variable SECRET for computing the output. If SECRET were to change, the getId function will return a different value for the same input. Thus, it is not a pure function.
+            Another benefit of pure functions is that they can be parallelized and memoized. Have a look at the previous two functions.
+            It’s impossible to parallelize or memoize them. This helps in creating performant code.
+            </p>       
+            </section>
+                    <section id="The_Tenets_of_Functional_Programming" class="main-section">
+                        <header><h2>The Tenets of Functional Programming</h2></header>
+            <p>     
+            So far, we have learned that functional programming is dependent on a few rules. They are as follows.
 
-let id_count = 0;
-const getId = () => ++id_count;
-This is also an impure function, and that too for a couple of reasons—(1) it uses a non-local variable for computing its output, and (2) it creates a side effect in the outside world by modifying a variable in that world.
+            Don’t mutate data
+            Use pure functions: fixed output for fixed inputs, and no side effects
+            Use expressions and declarations
+            When we satisfy these conditions, we can say our code is functional.
+            </p>   
+            </section>
+                    <section id="Functional_Programming_in_JavaScript" class="main-section">
+                        <header><h2>Functional Programming in JavaScript</h2></header>
+            <p>            
+            JavaScript already has some functions that enable functional programming.
+            Example: <code>String.prototype.slice, Array.protoype.filter, Array.prototype.join.</code>
 
-getId is impure illustration
-This can be troublesome if we had to debug this code.
-
-What’s the current value of id_count? Which other functions are modifying id_count? Are there other functions relying on id_count?
-
-Because of these reasons, we only use pure functions in functional programming.
-
-Another benefit of pure functions is that they can be parallelized and memoized. Have a look at the previous two functions. It’s impossible to parallelize or memoize them. This helps in creating performant code.
-        </section>
-        <section id="The_Tenets_of_Functional_Programming"class="main-section">
-            <header>The Tenets of Functional Programming</header>
-            
-So far, we have learned that functional programming is dependent on a few rules. They are as follows.
-
-Don’t mutate data
-Use pure functions: fixed output for fixed inputs, and no side effects
-Use expressions and declarations
-When we satisfy these conditions, we can say our code is functional.
-        </section>
-        <section id="Functional_Programming_in_JavaScript"class="main-section">
-            <header>Functional Programming in JavaScript</header>
-            
-JavaScript already has some functions that enable functional programming. Example: String.prototype.slice, Array.protoype.filter, Array.prototype.join.
-
-On the other hand, Array.prototype.forEach, Array.prototype.push are impure functions.
-
-One can argue that Array.prototype.forEach is not an impure function by design but think about it—it’s not possible to do anything with it except mutating non-local data or doing side effects. Thus, it’s okay to put it in the category of impure functions.
-
-Also, JavaScript has a const declaration, which is perfect for functional programming since we won’t be mutating any data.
-        </section>
-        <section id="Conclusion"class="main-section">
-            <header >Conclusion</header>
-            
-            We went through pure and impure functions, functional programming, the new JavaScript features that help with it, and a few key concepts in functional programming.
-            
-            We hope that this piece piques your interest in functional programming and possibly motivates you to try it in your code. We are positive that it will be a learning experience and a milestone in your software development journey.
-            
-            Functional programming is a well-researched and robust paradigm of writing computer programs. With the introduction of ES6, JavaScript allows for a much better functional programming experience than ever before.
-        </section>
+            On the other hand, <code>Array.prototype.forEach, Array.prototype.push</code> are impure functions.
+            </p>
+            <p>
+            One can argue that <code>Array.prototype.forEach</code> is not an impure function by design
+            but think about it—it’s not possible to do anything with it except mutating non-local data or doing side effects.
+            Thus, it’s okay to put it in the category of impure functions.
+            </p>
+            <p>
+            Also, JavaScript has a const declaration, which is perfect for functional programming since we won’t be mutating any data.
+            </p>   
+            </section>
+            <section id="Conclusion" class="main-section">
+                        <header><h2>Conclusion</h2></header>
+                        <p>
+                        We went through pure and impure functions, functional programming,
+                        the new JavaScript features that help with it, and a few key concepts in functional programming.
+                        </p>
+                        <p>
+                        We hope that this piece piques your interest in functional programming and possibly motivates you to try it in your code.
+                        We are positive that it will be a learning experience and a milestone in your software development journey.
+                    </p>
+                    <p>
+                        Functional programming is a well-researched and robust paradigm of writing computer programs.
+                        With the introduction of ES6, JavaScript allows for a much better functional programming experience than ever before.
+                    </p>
+                    </section>
 
 
     </main> 
