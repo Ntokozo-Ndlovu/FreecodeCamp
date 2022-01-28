@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Roboto:wght@100&display=swap');
 html {
     scroll-behavior: smooth;
 }
 body{
     padding: 0;
     margin: 0;
+    font-family: "Open Sans";
+    color:#202927;
 }
 nav{
     display: flex;
@@ -11,30 +14,92 @@ nav{
     height: 100vh;
     width: 20vw;
     position: fixed;
-    background: white;
-    justify-content: space-evenly;
+    background: #202927;
+    color: white;
+    justify-content: flex-start;
 }
+/*
+#E84A5F-border and Font
+#FF847C
+*/
 nav header {
     display: grid;
     justify-content: center;
     align-content: center;
-    height:15%;
-    background: purple;
-    font-size: x-large;
+    height:20%;
+    font-size: xx-large;
 }
 .nav-link{
     display: grid;
     justify-content: center;
     align-content: center;
-    background: gray;
+    background: #01463e;
     height: 10%;
+    width: 99%;
+    color:white;
+    margin-top: 1%;
     text-decoration: none;
     font-size: larger;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-name: btn-animation;
+
+
 }
+
+.nav-link:nth-child(2){
+    animation-duration: 1s;
+
+}
+
+.nav-link:nth-child(3){
+    animation-duration: 1.3s;
+
+}
+
+.nav-link:nth-child(4){
+
+    animation-duration: 1.6s;
+
+}
+
+.nav-link:nth-child(5){
+
+    animation-duration: 1.9s;
+
+}
+.nav-link:nth-child(6){
+
+    animation-duration: 2s;
+
+}
+
 main{
+
     margin-left: 20vw;
     padding: 2%;
 }
+.main-section h2 {
+    color:#01463e;
+}
 .main-section{
     font-size: large;
+}
+
+@keyframes btn-animation{
+    0% {
+        width: 20%;
+    }
+    50% {
+        width: 90%;
+    }
+    60%{
+        width: 100%;
+    }
+    95%{
+        width: 90%
+    }
+    100%{
+        width: 99%;
+    }
 }
