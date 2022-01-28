@@ -85,7 +85,20 @@ main{
 .main-section{
     font-size: large;
 }
-
+@media (max-width:1200px){
+    .nav-link {
+        font-size: medium;
+        height: 8%;
+        }
+}
+@media (max-width:1040px){
+    main {
+        margin: 0;
+    }
+    nav{
+        display: none;
+    }
+}
 @keyframes btn-animation{
     0% {
         width: 20%;
