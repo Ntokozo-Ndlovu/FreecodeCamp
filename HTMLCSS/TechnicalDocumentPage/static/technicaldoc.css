@@ -79,8 +79,10 @@ main{
     margin-left: 20vw;
     padding: 2%;
 }
-.main-section h2 {
+.main-section header {
     color:#01463e;
+    font-weight: 900;
+    font-size: x-large;
 }
 .main-section{
     font-size: large;
